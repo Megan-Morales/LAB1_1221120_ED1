@@ -109,5 +109,60 @@ namespace LAB1_MEGAN_MORALES_1221120.Controllers
                 return View();
             }
         }
+
+        public ActionResult SortbyName(int id)
+        {
+            
+            for (int i = 0; i < Singelton.Instance.ClientList.Count - 1; i++)
+            {
+                for (int j = i + 1; j < Singelton.Instance.ClientList.Count; j++)
+                {
+                    if (Singelton.Instance.ClientList[j].Name.CompareTo(Singelton.Instance.ClientList[i].Name) < 0)
+                    {
+                        var temp = Singelton.Instance.ClientList[j];
+                        Singelton.Instance.ClientList[j] = Singelton.Instance.ClientList[i];
+                        Singelton.Instance.ClientList[i] = temp;
+                    }
+                }
+            }
+            return View(Singelton.Instance.ClientList);
+        }
+
+        public ActionResult SortbyLastName(int id)
+        {
+            
+            for (int i = 0; i < Singelton.Instance.ClientList.Count - 1; i++)
+            {
+                for (int j = i + 1; j < Singelton.Instance.ClientList.Count; j++)
+                {
+                    if (Singelton.Instance.ClientList[j].LastName.CompareTo(Singelton.Instance.ClientList[i].LastName) < 0)
+                    {
+                        var temp = Singelton.Instance.ClientList[j];
+                        Singelton.Instance.ClientList[j] = Singelton.Instance.ClientList[i];
+                        Singelton.Instance.ClientList[i] = temp;
+                    }
+                }
+            }
+            return View(Singelton.Instance.ClientList);
+        }
+
+        public ActionResult SortbyX(int id)
+        {
+
+            for (int i = 0; i < Singelton.Instance.ClientList.Count - 1; i++)
+            {
+                for (int j = i + 1; j < Singelton.Instance.ClientList.Count; j++)
+                {
+                    if (Singelton.Instance.ClientList[j].Id < (Singelton.Instance.ClientList[i].Id))
+                    {
+                        var temp = Singelton.Instance.ClientList[j];
+                        Singelton.Instance.ClientList[j] = Singelton.Instance.ClientList[i];
+                        Singelton.Instance.ClientList[i] = temp;
+                    }
+                }
+            }
+            return View(Singelton.Instance.ClientList);
+        }
+
     }
 }
