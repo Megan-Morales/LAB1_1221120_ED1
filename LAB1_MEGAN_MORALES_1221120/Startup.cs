@@ -46,7 +46,7 @@ namespace LAB1_MEGAN_MORALES_1221120
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Client}/{action=Index}/{id?}");
             });
         }
     }
